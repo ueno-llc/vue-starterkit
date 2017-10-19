@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import AppLayout from '@/layouts/Default';
 import Home from '@/pages/home';
+import NotFound from '@/pages/not-found';
 
 Vue.use(Router);
 
@@ -17,6 +18,10 @@ export default new Router({
           component: Home,
         },
       ],
+    }, {
+      path: '*',
+      name: '404',
+      component: NotFound,
     },
   ],
   mode: 'history',
