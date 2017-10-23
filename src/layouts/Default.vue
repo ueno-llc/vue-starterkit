@@ -13,6 +13,7 @@
 <script>
 import Navigation from '@/components/Navigation';
 import NavHeader from './components/Header';
+import config from '../utils/config';
 
 export default {
   components: {
@@ -20,7 +21,7 @@ export default {
     Navigation,
   },
   metaInfo: {
-    titleTemplate: 'Ueno. - %s',
+    ...config.meta,
   },
 };
 </script>
