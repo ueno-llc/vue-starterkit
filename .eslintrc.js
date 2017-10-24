@@ -11,7 +11,7 @@ module.exports = {
     browser: true,
   },
   extends: [
-    '@ueno',
+    '@ueno/eslint-config/base',
     'plugin:vue/recommended',
   ],
   // required to lint *.vue files

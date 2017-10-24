@@ -12,7 +12,7 @@
     "stylelint": "stylelint \"src/**/*.{vue,scss}\" --custom-syntax postcss-html"
   },
   "dependencies": {
-    "@ueno/eslint-config": "^0.0.3",
+    "@ueno/eslint-config": "1.1.0",
     "@ueno/stylelint-config": "^0.0.4",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
@@ -52,7 +52,7 @@
     "babel-register": "^6.22.0",
     "connect-history-api-fallback": "^1.3.0",
     "css-loader": "^0.28.0",
-    "eslint": "^3.19.0",
+    "eslint": "4.9.0",
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eventsource-polyfill": "^0.9.6",
