@@ -2,7 +2,7 @@
   <a
     v-if="isExternal"
     class="button"
-    :class="{disabled: disabled}"
+    :class="{disabled}"
     :href="to"
     @click="onClick"
   >
@@ -11,7 +11,7 @@
   <router-link
     v-else-if="isLink"
     class="button"
-    :class="{disabled: disabled}"
+    :class="{disabled}"
     :to="to"
     @click="onClick"
   >
@@ -20,7 +20,7 @@
   <button
     v-else
     class="button"
-    :class="{disabled: disabled}"
+    :class="{disabled}"
     @click="onClick"
   >
     <slot />
