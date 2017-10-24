@@ -1,5 +1,5 @@
 <template>
-    <div v-show="display" ref="grid" class="grid" v-bind:class="{ horizontalIsVisible: isHorizontalVisible, verticalIsVisible: isVerticalVisible }">
+    <div v-show="display" ref="grid" class="grid" :class="{ isHorizontalVisible, isVerticalVisible }">
       <div class="grid__container">
         <div class="grid__row" :data-columns="columns">
             <div class="grid__column" v-for="key in columns" :key="key">
@@ -8,7 +8,7 @@
         </div>
       </div>
       <div>
-        <button key="v" class="grid__button" v-bind:class="{ verticalIsVisible: isVerticalVisible }"v-on:click="onToggleVertical">
+        <button key="v" class="grid__button" :class="{ isVerticalVisible }" @click="onToggleVertical">
           <svg class="grid__button__svg" width="14px" height="14px" view-box="0 0 14 14">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
               <rect x="0" y="0" width="2" height="14" />
@@ -18,7 +18,7 @@
             </g>
           </svg>
         </button>
-        <button key="h" class="grid__button" v-bind:class="{ horizontalIsVisible: isHorizontalVisible }" v-on:click="onToggleHorizontal">
+        <button key="h" class="grid__button" :class="{ isHorizontalVisible }" @click="onToggleHorizontal">
           <svg class="grid__button__svg" width="14px" height="14px" view-box="0 0 14 14">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(7.000000, 7.000000) rotate(-270.000000) translate(-7.000000, -7.000000)">
               <rect x="0" y="0" width="2" height="14" />
@@ -62,11 +62,11 @@
         transition: opacity 0.2s;
       }
 
-      &.verticalIsVisible &__container {
+      &.isVerticalVisible &__container {
         opacity: 1;
       }
 
-      &.horizontalIsVisible {
+      &.isHorizontalVisible {
         background:
           linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - (1 / var(--grid-baseline-calc) * 100%)), rgba(0, 0, 0, 0.05) calc(100% - (1 / var(--grid-baseline-calc) * 100%))),
           linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - (1 / var(--grid-baseline-calc) * 100%)), rgba(255, 255, 255, 0.15) calc(100% - (1 / var(--grid-baseline-calc) * 100%)));
@@ -160,8 +160,8 @@
         }
 
         // stylelint-disable
-        &.horizontalIsVisible,
-        &.verticalIsVisible {
+        &.isHorizontalVisible,
+        &.isVerticalVisible {
           g,
           &:hover g {
             fill: #328bf3;
