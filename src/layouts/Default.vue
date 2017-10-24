@@ -2,14 +2,13 @@
   <div class="layout">
     <nav-header>
       <navigation :routes="routes">
-        <template slot-scope="route">
-          <router-link
-            class="link"
-            :to="route.to"
-            >
-            {{ route.name }}
-          </router-link>
-        </template>
+        <router-link
+          slot-scope="route"
+          class="link"
+          :to="route.to"
+          >
+          {{ route.name }}
+        </router-link>
       </navigation>
     </nav-header>
     <router-view></router-view>
