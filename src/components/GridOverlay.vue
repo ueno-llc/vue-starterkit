@@ -173,76 +173,76 @@
 
 </style>
 <script>
-  /* eslint-disable max-len */
-  // Key to store visibility state of the grid overlay
-  const LOCAL_STORAGE_KEY_HORIZONTAL = '_devtoolsHorizontalGridVisible';
-  const LOCAL_STORAGE_KEY_VERTICAL = '_devtoolsVerticalGridVisible';
-  const LOCAL_STORAGE_KEY_VISIBLE = '_devtoolsGridVisible';
+/* eslint-disable max-len */
+// Key to store visibility state of the grid overlay
+const LOCAL_STORAGE_KEY_HORIZONTAL = '_devtoolsHorizontalGridVisible';
+const LOCAL_STORAGE_KEY_VERTICAL = '_devtoolsVerticalGridVisible';
+const LOCAL_STORAGE_KEY_VISIBLE = '_devtoolsGridVisible';
 
-  /**
-   * Grid Overlay component
-   */
-  export default {
-    name: 'GridOverlay',
-    props: {
-      columns: {
-        type: Number,
-        default: 12,
-      },
-      baseline: {
-        type: Number,
-        default: 16,
-      },
+/**
+ * Grid Overlay component
+ */
+export default {
+  name: 'GridOverlay',
+  props: {
+    columns: {
+      type: Number,
+      default: 12,
     },
-    data() {
-      return {
-        isVerticalVisible: false,
-        isHorizontalVisible: false,
-        display: true,
-      };
+    baseline: {
+      type: Number,
+      default: 16,
     },
-    created() {
-      document.addEventListener('keydown', this.onKeyDown);
-    },
-    beforeDestroy() {
-      document.removeEventListener('keydown', this.onKeyDown);
-    },
-    mounted() {
-      this.setUp();
-    },
-    methods: {
-      setUp() {
-        const { columns, baseline } = this;
+  },
+  data() {
+    return {
+      isVerticalVisible: false,
+      isHorizontalVisible: false,
+      display: true,
+    };
+  },
+  created() {
+    document.addEventListener('keydown', this.onKeyDown);
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.onKeyDown);
+  },
+  mounted() {
+    this.setUp();
+  },
+  methods: {
+    setUp() {
+      const { columns, baseline } = this;
 
-        this.isHorizontalVisible = (localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true');
-        this.isVerticalVisible = (localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true');
-        this.display = (localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true');
+      this.isHorizontalVisible = (localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true');
+      this.isVerticalVisible = (localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true');
+      this.display = (localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true');
 
-        this.$refs.grid.style.setProperty('--grid-column-count', columns);
-        this.$refs.grid.style.setProperty('--grid-baseline', `${baseline}px`);
-        this.$refs.grid.style.setProperty('--grid-baseline-calc', baseline);
-      },
-      onToggleVertical() {
-        this.isVerticalVisible = !this.isVerticalVisible;
-        localStorage.setItem(LOCAL_STORAGE_KEY_VERTICAL, this.isVerticalVisible);
-      },
-      onToggleHorizontal() {
-        this.isHorizontalVisible = !this.isHorizontalVisible;
-        localStorage.setItem(LOCAL_STORAGE_KEY_HORIZONTAL, this.isHorizontalVisible);
-      },
-      onToggleDisplay() {
-        this.display = !this.display;
-        localStorage.setItem(LOCAL_STORAGE_KEY_VISIBLE, this.display);
-      },
-      onKeyDown(e) {
-        if (e.ctrlKey && e.keyCode === 76) {
-          this.onToggleVertical();
-        }
-
-        if (e.ctrlKey && e.keyCode === 75) {
-          this.onToggleDisplay();
-        }
-      },
+      this.$refs.grid.style.setProperty('--grid-column-count', columns);
+      this.$refs.grid.style.setProperty('--grid-baseline', `${baseline}px`);
+      this.$refs.grid.style.setProperty('--grid-baseline-calc', baseline);
     },
-  };
+    onToggleVertical() {
+      this.isVerticalVisible = !this.isVerticalVisible;
+      localStorage.setItem(LOCAL_STORAGE_KEY_VERTICAL, this.isVerticalVisible);
+    },
+    onToggleHorizontal() {
+      this.isHorizontalVisible = !this.isHorizontalVisible;
+      localStorage.setItem(LOCAL_STORAGE_KEY_HORIZONTAL, this.isHorizontalVisible);
+    },
+    onToggleDisplay() {
+      this.display = !this.display;
+      localStorage.setItem(LOCAL_STORAGE_KEY_VISIBLE, this.display);
+    },
+    onKeyDown(e) {
+      if (e.ctrlKey && e.keyCode === 76) {
+        this.onToggleVertical();
+      }
+
+      if (e.ctrlKey && e.keyCode === 75) {
+        this.onToggleDisplay();
+      }
+    },
+  },
+};
 </script>
