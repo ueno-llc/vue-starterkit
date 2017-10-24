@@ -1,9 +1,15 @@
 <template>
   <div class="layout">
     <nav-header>
-      <navigation>
-        <router-link class="link" to="/">Home</router-link>
-        <router-link class="link" to="/about">About</router-link>
+      <navigation :routes="routes">
+        <template slot-scope="route">
+          <router-link
+            class="link"
+            :to="route.to"
+            >
+            {{ route.name }}
+          </router-link>
+        </template>
       </navigation>
     </nav-header>
     <router-view></router-view>
@@ -22,6 +28,20 @@ export default {
   },
   metaInfo: {
     ...config.meta,
+  },
+  data() {
+    return {
+      routes: [
+        {
+          name: 'Home',
+          to: '/',
+        },
+        {
+          name: 'About',
+          to: '/about',
+        },
+      ],
+    };
   },
 };
 </script>

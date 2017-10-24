@@ -1,13 +1,21 @@
+<template>
+  <nav class="navigation">
+    <ul class="navigation__list">
+      <li
+        class="navigation__item"
+        v-for="(route, i) in routes"
+        v-bind:key="i"
+      >
+        <slot v-bind="route"></slot>
+      </li>
+    </ul>
+  </nav>
+</template>
+
 <script>
 export default {
-  render(h) {
-    const children = this.$slots.default.filter(n => n.tag);
-    return h('nav', {
-      class: 'navigation',
-    }, [
-      h('ul', { class: 'navigation__list' },
-        children.map(c => h('li', { class: 'navigation__item' }, [c]))),
-    ]);
+  props: {
+    routes: Array,
   },
 };
 </script>
