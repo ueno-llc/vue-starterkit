@@ -1,0 +1,34 @@
+{
+  "name": "Vue Starter kit",
+  "description": "",
+  "keywords": [
+    "starter kit",
+    "www"
+  ],
+  "scripts": {},
+  "website": "https://github.com/ueno-llc/vue-starterkit#readme",
+  "repository": "https://github.com/ueno-llc/vue-starterkit.git",
+  "env": {
+    "NODE_ENV": {
+      "description": "Environment to build",
+      "required": false
+    }
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "NODE_ENV": "test"
+      }
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "image": "heroku/nodejs",
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }]
+}
