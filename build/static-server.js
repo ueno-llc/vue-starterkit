@@ -6,7 +6,11 @@ const port = process.env.PORT || 3000;
 
 require('http').createServer((req, res) => {
   req.addListener('end', function() {
-    file.serve(req, res);
+    if (req.url.indexOf('.') === -1) { // SPA - Load `index.html` for every sub directory
+      file.serveFile('./index.html', 200, {}, req, res);
+    } else { // load files normally
+      file.serve(req, res);
+    }
   }).resume();
 }).listen(port);
 
