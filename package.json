@@ -9,7 +9,8 @@
     "start": "node build/static-server.js",
     "build": "node build/build.js",
     "postinstall": "yarn build",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "yarn eslint && yarn stylelint",
+    "eslint": "eslint --ext .js,.vue src",
     "stylelint": "stylelint \"src/**/*.{vue,scss}\" --custom-syntax postcss-html"
   },
   "dependencies": {
