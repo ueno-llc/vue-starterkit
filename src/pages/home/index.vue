@@ -2,6 +2,7 @@
   <div>
     <segment>
       <heading>Welcome to Vue</heading>
+      <test />
     </segment>
 
     <segment>
@@ -16,12 +17,14 @@
 import Segment from '@/components/Segment';
 import Heading from '@/components/Heading';
 import BaseButton from '@/components/Button';
+import Test from '@/components/Test';
 
 export default {
   components: {
     Segment,
     Heading,
     BaseButton,
+    Test,
   },
   metaInfo: {
     title: 'Home',
