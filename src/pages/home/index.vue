@@ -2,6 +2,7 @@
   <div>
     <segment>
       <heading>Welcome to Vue</heading>
+      <test />
     </segment>
 
     <segment>
