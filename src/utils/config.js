@@ -9,7 +9,7 @@ export default {
     titleTemplate: 'Ueno. - %s',
     meta: [
       { httpEquiv: 'X-UA-Compatible', content: 'IE=edge' },
-      { name: 'description', content: 'Ueno. description text here!' },
+      { vmid: 'description', name: 'description', content: 'Ueno. description text here!' },
       // prevents inputs from zooming, but iOS still allows normal pinch zoom
       { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
       { name: 'msapplication-TileColor', content: '#00E2AD' },
