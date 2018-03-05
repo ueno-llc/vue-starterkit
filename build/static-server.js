@@ -12,7 +12,6 @@ require('http').createServer((req, res) => {
     } else { // load files normally
       file.serve(req, res);
     }
-    // file.serve(req, res);
   }).resume();
 }).listen(port);
 
